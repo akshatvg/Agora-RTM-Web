@@ -24,7 +24,7 @@ Real Time Messaging application using the Agora.io RTM SDK for texting without d
 
 ## Requirements
 
-[![GitHub top language](https://img.shields.io/github/languages/top/akshatvg/Agora-RTM-Web?logo=javascript&style=social)](https://github.com/akshatvg/)
+[![GitHub top language](https://img.shields.io/github/languages/top/akshatvg/Agora-RTM-Web?logo=html&style=social)](https://github.com/akshatvg/)
 
 The source code of this project is written in **`HTML`, `CSS`, `JavaScript` and the `Agora RTM SDK`**. So, you would require the Agora RTM SDK and a valid App Id to run this project.
 
