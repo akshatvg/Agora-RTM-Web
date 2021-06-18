@@ -7,14 +7,18 @@ $("#sendMsgBtn").prop("disabled", true);
 M.AutoInit();
 
 // RtmClient
-const client = AgoraRTM.createInstance(agoraAppId, { enableLogUpload: false });
+const client = AgoraRTM.createInstance(agoraAppId, {
+    enableLogUpload: false
+});
 
 // Form Click Event
 $("#joinChannelBtn").click(function () {
     var accountName = $('#accountName').val();
 
     // Login
-    client.login({ uid: accountName }).then(() => {
+    client.login({
+        uid: accountName
+    }).then(() => {
         console.log('AgoraRTM client login success. Username: ' + accountName);
         isLoggedIn = true;
 
@@ -33,19 +37,24 @@ $("#joinChannelBtn").click(function () {
             // Send Channel Message
             $("#sendMsgBtn").click(function () {
                 singleMessage = $('#channelMsg').val();
-                channel.sendMessage({ text: singleMessage }).then(() => {
+                $('#channelMsg').val('');
+                channel.sendMessage({
+                    text: singleMessage
+                }).then(() => {
                     console.log("Message sent successfully.");
                     console.log("Your message was: " + singleMessage + " by " + accountName);
-                    $("#messageBox").append("<br> <b>Sender:</b> " + accountName + "<br> <b>Message:</b> " + singleMessage + "<br>");
+                    $("#messageBox").append("<br> <b>Sender:</b> " + accountName + "<br> <b>Message: </b> <span style='white-space: pre-wrap;'>" + singleMessage + "</span><br>");
                 }).catch(error => {
                     console.log("Message wasn't sent due to an error: ", error);
                 });
 
                 // Receive Channel Message
-                channel.on('ChannelMessage', ({ text }, senderId) => {
+                channel.on('ChannelMessage', ({
+                    text
+                }, senderId) => {
                     console.log("Message received successfully.");
                     console.log("The message is: " + text + " by " + senderId);
-                    $("#messageBox").append("<br> <b>Sender:</b> " + senderId + "<br> <b>Message:</b> " + text + "<br>");
+                    $("#messageBox").append("<br> <b>Sender:</b> " + senderId + "<br> <b>Message: </b>  <span style='white-space: pre-wrap;'" + text + "</span><br>");
                 });
             });
 
