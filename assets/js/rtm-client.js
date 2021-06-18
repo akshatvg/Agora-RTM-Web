@@ -37,13 +37,13 @@ $("#joinChannelBtn").click(function () {
             // Send Channel Message
             $("#sendMsgBtn").click(function () {
                 singleMessage = $('#channelMsg').val();
-                $('#channelMsg').val('');
                 channel.sendMessage({
                     text: singleMessage
                 }).then(() => {
                     console.log("Message sent successfully.");
                     console.log("Your message was: " + singleMessage + " by " + accountName);
                     $("#messageBox").append("<br> <b>Sender:</b> " + accountName + "<br> <b>Message: </b> <span style='white-space: pre-wrap;'>" + singleMessage + "</span><br>");
+                    $('#channelMsg').val('');
                 }).catch(error => {
                     console.log("Message wasn't sent due to an error: ", error);
                 });
