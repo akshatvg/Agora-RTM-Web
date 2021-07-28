@@ -54,7 +54,7 @@ $("#joinChannelBtn").click(function () {
                 }, senderId) => {
                     console.log("Message received successfully.");
                     console.log("The message is: " + text + " by " + senderId);
-                    $("#messageBox").append("<br> <b>Sender:</b> " + senderId + "<br> <b>Message: </b>  <span style='white-space: pre-wrap;'" + text + "</span><br>");
+                    $("#messageBox").append("<br> <b>Sender:</b> " + senderId + "<br> <b>Message: </b> <span style='white-space: pre-wrap;'>" + text + "</span><br>");
                 });
             });
 
