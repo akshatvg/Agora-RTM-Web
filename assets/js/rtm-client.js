@@ -1,19 +1,19 @@
 // Constants
-var agoraAppId = "a6af85f840ef43108491705e2315a857";
 var isLoggedIn = false;
 $("#sendMsgBtn").prop("disabled", true);
 
 // Auto Init MaterializeCSS
 M.AutoInit();
 
-// RtmClient
-const client = AgoraRTM.createInstance(agoraAppId, {
-    enableLogUpload: false
-});
-
 // Form Click Event
 $("#joinChannelBtn").click(function () {
     var accountName = $('#accountName').val();
+    var agoraAppId = $('#agoraAppId').val();
+
+    // RtmClient
+    const client = AgoraRTM.createInstance(agoraAppId, {
+        enableLogUpload: false
+    });
 
     // Login
     client.login({
